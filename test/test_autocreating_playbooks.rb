@@ -42,7 +42,7 @@ end
 
 class TestAutocreate < Minitest::Test
   def setup
-    @play = ExamplePlaybookGen.new
+    @play = ExamplePlaybookGen.new.compile_playbook
   end
 
   def test_playbook_hash_generate
