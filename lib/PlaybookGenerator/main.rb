@@ -10,6 +10,7 @@ class PlaybookGenerator
     @step = @steps.open(step_name) || PlaybookGenerator::Step.new(step_name)
     instance_eval &block
     insert(:last, @step) unless @steps.index(@step) if @step
+    @step = nil
   end
   def remove
     @steps.delete(@step)
@@ -46,6 +47,7 @@ class PlaybookGenerator::Step
     @task.other = Hash.new
     instance_eval &block
     insert(:last, @task) unless @tasks.index(@task) if @task
+    @task = nil
   end
   def remove
     @tasks.delete(@task)
